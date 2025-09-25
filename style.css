@@ -1,0 +1,225 @@
+* { margin:0; 
+  padding:0; 
+  box-sizing:border-box; 
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background:#0a0a0a; 
+  color:#fff; 
+  line-height:1.6;
+}
+
+.navbar { 
+  position:fixed; 
+  top:0; 
+  right:0; 
+  padding:20px 40px; 
+  z-index:100;
+}
+.nav-links { 
+  list-style:none; 
+  display:flex; 
+  gap:25px; 
+}
+.nav-links a { 
+  color:#fff; 
+  text-decoration:none; 
+  font-weight:700; 
+  transition:color .2s;
+}
+.nav-links a:hover { 
+  color:#ff2e2e; 
+}
+.menu-toggle { 
+  display:none; 
+}
+
+.scroll-section { 
+  opacity:0; 
+  transform:translateY(50px); 
+  transition: opacity .9s ease, transform .9s ease; 
+}
+.scroll-section.show { 
+  opacity:1; 
+  transform:translateY(0); 
+}
+
+section h2 { 
+  text-align:center; 
+  margin-bottom:40px; 
+  font-size:2rem; 
+}
+
+.home-section { 
+  display:flex; 
+  align-items:center; 
+  min-height:100vh; 
+  padding:0 50px; 
+}
+.home-content { 
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  gap:50px; 
+  flex-wrap:wrap; 
+  width:100%; 
+  max-width:1200px; 
+  margin:0 auto; 
+}
+.home-text { 
+  flex:1; 
+  padding-right:20px; 
+}
+.home-text h1 { 
+  font-size:2.6rem; 
+  line-height:1.05; 
+}
+.home-text span { 
+  color:#ff2e2e; 
+  display:block; 
+  margin-top:6px; 
+}
+.home-image { 
+  flex:1; 
+  display:flex; 
+  justify-content:flex-end; }
+.home-image img { 
+  max-width:420px; 
+  width:45vw; 
+  max-height:70vh; 
+  object-fit:cover; 
+  border-radius:50%; 
+  transform:translateX(50px); 
+  opacity:0; 
+  transition: transform 1s ease, opacity 1s ease; 
+}
+
+.about-section { 
+  padding:90px 20px; 
+}
+.about-content { 
+  width:100%; 
+  max-width:1200px; 
+  margin:0 auto; 
+}
+.about-segments { 
+  display:grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap:22px; 
+  align-items:stretch; 
+}
+.about-segment {
+  background:#0f1113;
+  border:1px solid rgba(255,255,255,0.04);
+  padding:22px;
+  border-radius:12px;
+  min-height:220px;
+  position:relative;
+  overflow:hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+  display:flex; 
+  flex-direction:column; 
+  justify-content:flex-start;
+  cursor: pointer;
+}
+.about-segment .seg-title { 
+  font-weight:700; 
+  font-size:1.05rem; 
+  margin-bottom:12px; 
+  color:#fff; 
+}
+.about-segment .seg-detail { 
+  opacity:0; 
+  transform: translateY(12px); 
+  transition: transform .28s cubic-bezier(.2,.9,.2,1), opacity .28s; 
+  color:#ddd; 
+  max-height: 0; 
+  overflow:hidden; 
+}
+.about-segment:hover .seg-detail, .about-segment.active .seg-detail { 
+  opacity:1; 
+  transform: translateY(0); 
+  max-height: 300px; 
+}
+.about-segment:hover, .about-segment.active { 
+  transform: translateY(-6px); 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+  border-color: rgba(255,46,46,0.9); 
+}
+
+.skills-section { 
+  padding:90px 20px; 
+  text-align:center; 
+}
+.skill-grid { 
+  display:grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap:20px; 
+  max-width:1200px; 
+  margin:0 auto; 
+}
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius:12px;
+}
+.skill-card img {
+  width:100%;
+  border-radius:12px;
+  transition: transform .3s ease;
+}
+.skill-card img:hover {
+  transform: scale(1.05);
+}
+.skill-card .skill-name {
+  position: absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#fff;
+  font-weight:700;
+  font-size:1.2rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  pointer-events:none;
+}
+
+.contact-section { 
+  padding:90px 20px; 
+}
+.contact-segments { 
+  display:grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap:20px; 
+  max-width:900px; 
+  margin:0 auto; 
+}
+.contact-card { 
+  background:#0f1113; 
+  padding:20px; 
+  border-radius:12px; 
+  text-align:center; 
+  border:1px solid rgba(255,255,255,0.05); 
+  transition:transform .3s ease, background .3s ease; 
+}
+.contact-card h3 { 
+  margin-bottom:10px; 
+}
+.contact-card a { 
+  color:#fff; 
+  text-decoration:none; 
+}
+
+footer { 
+  text-align:center; 
+  padding:20px; 
+  background:#080808; 
+  margin-top:50px; 
+  color:#999; 
+}
+
+@media (max-width: 900px) {
+  .about-segments { grid-template-columns: 1fr; }
+  .contact-segments { grid-template-columns: 1fr; }
+  .home-image img { width:70vw; }
+}
